@@ -27,7 +27,7 @@ namespace BCIMockApp.ViewModels
         private float _betaValue;
         private float _concentrationLevel;
         private string _feedbackImageSource = "neutral.png";
-        private string _themeIcon = "theme_light_mode_icon.svg";
+        private string _themeIcon = "theme_light_mode_icon.png";
 
         public bool IsConnected
         {
@@ -288,7 +288,7 @@ namespace BCIMockApp.ViewModels
         
         private void UpdateThemeIcon()
         {
-            ThemeIcon = App.IsLightTheme ? "theme_light_mode_icon.svg" : "theme_dark_mode_icon.svg";
+            ThemeIcon = App.IsLightTheme ? "theme_light_mode_icon.png" : "theme_dark_mode_icon.png";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

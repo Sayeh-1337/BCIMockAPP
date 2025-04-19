@@ -25,12 +25,13 @@
                         <ImageButton Grid.Column="1"
                                      Source="{Binding ThemeIcon}"
                                      Command="{Binding ToggleThemeCommand}"
-                                     HeightRequest="30"
-                                     WidthRequest="30"
+                                     HeightRequest="40"
+                                     WidthRequest="40"
                                      VerticalOptions="Start"
                                      HorizontalOptions="End"
                                      BackgroundColor="Transparent"
-                                     Margin="0,0,0,0" />
+                                     Margin="0,0,0,0"
+                                     Aspect="AspectFit" />
                     </Grid>
                 </VerticalStackLayout>
             </Frame>
