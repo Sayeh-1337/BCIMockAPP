@@ -1,0 +1,14 @@
+# Visual Studio cache/options directory
+.vs/
+# Bin and obj folders
+bin/
+obj/
+
+
+# NuGet
+*.nupkg
+
+# VSCode
+.vscode/
+
+

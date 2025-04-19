@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:BCIMockApp.ViewModels"
+             x:Class="BCIMockApp.MainPage"
+             Title="BCI Mock Demo">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Frame BorderColor="Gray" Padding="15" Margin="0,0,0,5">
+                <VerticalStackLayout>
+                    <Label Text="BCI Mock Application" 
+                           FontSize="24" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,10" />
+
+                    <Label Text="This app simulates a Brain-Computer Interface with mock data" 
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,5" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Device Status Section -->
+            <Frame BorderColor="Gray" Padding="15" Margin="0,0,0,5">
+                <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto,Auto">
+                    <Label Text="Device Status:" 
+                           Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center" />
+
+                    <Label Text="{Binding ConnectionStatus}" 
+                           Grid.Row="0" Grid.Column="1"
+                           TextColor="{Binding IsConnected, Converter={StaticResource BoolToColorConverter}}"
+                           VerticalOptions="Center" />
+
+                    <Button Text="{Binding ConnectionButtonText}" 
+                            Command="{Binding ToggleConnectionCommand}"
+                            Grid.Row="0" Grid.Column="2"
+                            HorizontalOptions="End" />
+
+                    <Label Text="Battery Level:" 
+                           Grid.Row="1" Grid.Column="0"
+                           VerticalOptions="Center" />
+
+                    <ProgressBar Progress="{Binding BatteryLevel, Converter={StaticResource IntToProgressConverter}}" 
+                                 Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                                 VerticalOptions="Center" />
+
+                    <Label Text="Signal Quality:" 
+                           Grid.Row="2" Grid.Column="0"
+                           VerticalOptions="Center" />
+
+                    <Label Text="{Binding SignalQuality}" 
+                           Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                           VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+
+            <!-- Brain Wave Activity Section -->
+            <Frame BorderColor="Gray" Padding="15" Margin="0,0,0,5">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Brain Wave Activity" 
+                           FontSize="18" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="10">
+                        <Label Text="Delta (0.5-4 Hz):" 
+                               Grid.Row="0" Grid.Column="0"
+                               VerticalOptions="Center" />
+
+                        <ProgressBar Progress="{Binding DeltaValue}" 
+                                     ProgressColor="Purple"
+                                     Grid.Row="0" Grid.Column="1"
+                                     VerticalOptions="Center" />
+
+                        <Label Text="Theta (4-8 Hz):" 
+                               Grid.Row="1" Grid.Column="0"
+                               VerticalOptions="Center" />
+
+                        <ProgressBar Progress="{Binding ThetaValue}" 
+                                     ProgressColor="Blue"
+                                     Grid.Row="1" Grid.Column="1"
+                                     VerticalOptions="Center" />
+
+                        <Label Text="Alpha (8-13 Hz):" 
+                               Grid.Row="2" Grid.Column="0"
+                               VerticalOptions="Center" />
+
+                        <ProgressBar Progress="{Binding AlphaValue}" 
+                                     ProgressColor="Green"
+                                     Grid.Row="2" Grid.Column="1"
+                                     VerticalOptions="Center" />
+
+                        <Label Text="Beta (13-30 Hz):" 
+                               Grid.Row="3" Grid.Column="0"
+                               VerticalOptions="Center" />
+
+                        <ProgressBar Progress="{Binding BetaValue}" 
+                                     ProgressColor="Red"
+                                     Grid.Row="3" Grid.Column="1"
+                                     VerticalOptions="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Concentration Level Section -->
+            <Frame BorderColor="Gray" Padding="15" Margin="0,0,0,5">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Concentration Level" 
+                           FontSize="18" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <ProgressBar Progress="{Binding ConcentrationLevel}" 
+                                 ProgressColor="Orange"
+                                 HeightRequest="15" />
+
+                    <Label Text="{Binding MentalState}" 
+                           FontSize="16"
+                           HorizontalOptions="Center" />
+
+                    <Image Source="{Binding FeedbackImageSource}" 
+                           HeightRequest="100" 
+                           HorizontalOptions="Center"
+                           Margin="0,10,0,0" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Simulation Controls Section -->
+            <Frame BorderColor="Gray" Padding="15" Margin="0,0,0,5">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Simulation Controls" 
+                           FontSize="18" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <Label Text="Simulate different brain states:" 
+                           HorizontalOptions="Center" />
+
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button Text="Meditation" 
+                                Command="{Binding SimulateMeditationCommand}"
+                                IsEnabled="{Binding IsConnected}"
+                                BackgroundColor="MediumPurple" />
+
+                        <Button Text="Focus" 
+                                Command="{Binding SimulateFocusCommand}"
+                                IsEnabled="{Binding IsConnected}"
+                                BackgroundColor="MediumSeaGreen" />
+
+                        <Button Text="Distraction" 
+                                Command="{Binding SimulateDistractionCommand}"
+                                IsEnabled="{Binding IsConnected}"
+                                BackgroundColor="Coral" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
