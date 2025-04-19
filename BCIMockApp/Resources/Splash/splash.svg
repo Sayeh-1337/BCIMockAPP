@@ -2,16 +2,33 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="456" height="456" viewBox="0 0 456 456" version="1.1"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-     xml:space="preserve" xmlns:serif="http://www.serif.com/"
-     style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+     xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
   
-  <!-- Background (optional) -->
-  <rect width="456" height="456" fill="#0a0a0f"/>
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#121212;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D2D2D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="456" height="456" fill="url(#bgGradient)"/>
 
-  <!-- Centered BCI Text -->
-  <text x="50%" y="50%" text-anchor="middle" fill="#ffffff"
-		  font-family="Arial, sans-serif" font-size="80" dy=".35em">
+  <!-- Brain wave animation -->
+  <path d="M68,228 C108,178 138,278 178,228 C218,178 248,278 288,228 C328,178 358,278 398,228" 
+        stroke="#7955E8" stroke-width="5" fill="none" />
+  <path d="M68,208 C108,158 138,258 178,208 C218,158 248,258 288,208 C328,158 358,258 398,208" 
+        stroke="#8F6CF2" stroke-width="4" fill="none" />
+  <path d="M68,248 C108,198 138,298 178,248 C218,198 248,298 288,248 C328,198 358,298 398,248" 
+        stroke="#6644CC" stroke-width="4" fill="none" />
+
+  <!-- App Title -->
+  <text x="228" y="310" text-anchor="middle" fill="#ffffff"
+        font-family="Arial, sans-serif" font-size="60" font-weight="bold">
     BCI
   </text>
-
+  
+  <text x="228" y="350" text-anchor="middle" fill="#9588D3"
+        font-family="Arial, sans-serif" font-size="24">
+    Brain-Computer Interface
+  </text>
 </svg>

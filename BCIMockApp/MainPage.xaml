@@ -9,15 +9,29 @@
         <VerticalStackLayout Padding="20" Spacing="15">
             <Frame BorderColor="Gray" Padding="15" Margin="0,0,0,5">
                 <VerticalStackLayout>
-                    <Label Text="BCI Mock Application" 
-                           FontSize="24" 
-                           FontAttributes="Bold" 
-                           HorizontalOptions="Center"
-                           Margin="0,0,0,10" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="BCI Mock Application" 
+                                   FontSize="24" 
+                                   FontAttributes="Bold" 
+                                   HorizontalOptions="Center"
+                                   Margin="0,0,0,10" />
 
-                    <Label Text="This app simulates a Brain-Computer Interface with mock data" 
-                           HorizontalOptions="Center"
-                           Margin="0,0,0,5" />
+                            <Label Text="This app simulates a Brain-Computer Interface with mock data" 
+                                   HorizontalOptions="Center"
+                                   Margin="0,0,0,5" />
+                        </VerticalStackLayout>
+                        
+                        <ImageButton Grid.Column="1"
+                                     Source="{Binding ThemeIcon}"
+                                     Command="{Binding ToggleThemeCommand}"
+                                     HeightRequest="30"
+                                     WidthRequest="30"
+                                     VerticalOptions="Start"
+                                     HorizontalOptions="End"
+                                     BackgroundColor="Transparent"
+                                     Margin="0,0,0,0" />
+                    </Grid>
                 </VerticalStackLayout>
             </Frame>
 

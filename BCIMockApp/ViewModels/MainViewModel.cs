@@ -27,6 +27,7 @@ namespace BCIMockApp.ViewModels
         private float _betaValue;
         private float _concentrationLevel;
         private string _feedbackImageSource = "neutral.png";
+        private string _themeIcon = "theme_light_mode_icon.svg";
 
         public bool IsConnected
         {
@@ -194,11 +195,25 @@ namespace BCIMockApp.ViewModels
             }
         }
 
+        public string ThemeIcon
+        {
+            get => _themeIcon;
+            set
+            {
+                if (_themeIcon != value)
+                {
+                    _themeIcon = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         // Commands
         public ICommand ToggleConnectionCommand { get; }
         public ICommand SimulateMeditationCommand { get; }
         public ICommand SimulateFocusCommand { get; }
         public ICommand SimulateDistractionCommand { get; }
+        public ICommand ToggleThemeCommand { get; }
 
         public MainViewModel(MockBCIService bciService)
         {
@@ -209,10 +224,14 @@ namespace BCIMockApp.ViewModels
             SimulateMeditationCommand = new Command(() => _bciService.SimulateConcentrationScenario("meditation"));
             SimulateFocusCommand = new Command(() => _bciService.SimulateConcentrationScenario("focus"));
             SimulateDistractionCommand = new Command(() => _bciService.SimulateConcentrationScenario("distraction"));
+            ToggleThemeCommand = new Command(() => ToggleTheme());
 
             // Subscribe to events
             _bciService.OnDataReceived += OnBCIDataReceived;
             _bciService.OnConnectionChanged += OnConnectionChanged;
+            
+            // Set initial theme icon
+            UpdateThemeIcon();
         }
 
         private async Task ToggleConnectionAsync()
@@ -259,6 +278,17 @@ namespace BCIMockApp.ViewModels
                 BatteryLevel = deviceInfo.BatteryLevel;
                 SignalQuality = deviceInfo.SignalQuality;
             });
+        }
+
+        private void ToggleTheme()
+        {
+            App.SwitchTheme();
+            UpdateThemeIcon();
+        }
+        
+        private void UpdateThemeIcon()
+        {
+            ThemeIcon = App.IsLightTheme ? "theme_light_mode_icon.svg" : "theme_dark_mode_icon.svg";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
