@@ -1,5 +1,7 @@
 ﻿# BCI Mock App
 
+[Watch the presentation video](https://youtu.be/cPttTWAGo64)
+
 A .NET MAUI application that simulates a Brain-Computer Interface (BCI) with mock data. This demo app allows developers to experiment with BCI UI patterns without requiring actual BCI hardware.
 
 ## Features
@@ -156,6 +158,8 @@ To learn more about Brain-Computer Interfaces:
 - [OpenBCI](https://openbci.com/) - Open source brain-computer interfaces
 - [EMOTIV](https://www.emotiv.com/) - Commercial BCI solutions
 - [Muse by InteraXon](https://choosemuse.com/) - Consumer EEG headsets
+- [Presentation Video](https://youtu.be/cPttTWAGo64) - Video demonstration of BCI applications
+- [PowerPoint Presentation](Presentation\Building Brain-Computer Interface Applications with.pptx) - Detailed slides on building BCI applications
 
 ## License
 
