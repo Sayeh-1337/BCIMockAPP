@@ -158,6 +158,9 @@ To learn more about Brain-Computer Interfaces:
 - [OpenBCI](https://openbci.com/) - Open source brain-computer interfaces
 - [EMOTIV](https://www.emotiv.com/) - Commercial BCI solutions
 - [Muse by InteraXon](https://choosemuse.com/) - Consumer EEG headsets
+- [g.tec](https://www.gtec.at/) - Medical grade BCI and neurotechnology solutions
+- [Neurosky](http://neurosky.com/) - Consumer EEG headsets and development platforms
+- [Neurosity Crown](https://neurosity.co/) - Focus-enhancing EEG headset with [developer SDK](https://docs.neurosity.co/docs/overview)
 - [Presentation Video](https://youtu.be/cPttTWAGo64) - Video demonstration of BCI applications
 - [PowerPoint Presentation](Presentation\Building Brain-Computer Interface Applications with.pptx) - Detailed slides on building BCI applications
 
